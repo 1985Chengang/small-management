@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { DefaultComponent } from './layout/default/default.component';
 import { FullscreenComponent } from './layout/fullscreen/fullscreen.component';
@@ -15,7 +14,8 @@ import { MenuComponent } from './layout/default/menu/menu.component';
 import { ProfileComponent } from './layout/default/entities/profile/profile.component';
 import { FormComponent } from './layout/default/entities/order/form/form.component';
 import { ManageComponent } from './layout/default/entities/order/manage/manage.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
 
 const router: Routes = [
   {
@@ -71,6 +71,7 @@ const router: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(router)
   ],
