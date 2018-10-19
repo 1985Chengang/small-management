@@ -15,6 +15,7 @@ import { MenuComponent } from './layout/default/menu/menu.component';
 import { ProfileComponent } from './layout/default/entities/profile/profile.component';
 import { FormComponent } from './layout/default/entities/order/form/form.component';
 import { ManageComponent } from './layout/default/entities/order/manage/manage.component';
+import {FormsModule} from "@angular/forms";
 
 const router: Routes = [
   {
@@ -70,6 +71,7 @@ const router: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(router)
   ],
   providers: [],
