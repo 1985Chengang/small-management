@@ -16,6 +16,9 @@ import { FormComponent } from './layout/default/entities/order/form/form.compone
 import { ManageComponent } from './layout/default/entities/order/manage/manage.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import {AuthJwtService} from './core/auth/auth-jwt.service';
+import {LoginService} from './core/login/login.service';
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 
 const router: Routes = [
   {
@@ -75,7 +78,7 @@ const router: Routes = [
     FormsModule,
     RouterModule.forRoot(router)
   ],
-  providers: [],
+  providers: [AuthJwtService,LoginService,LocalStorageService,SessionStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
