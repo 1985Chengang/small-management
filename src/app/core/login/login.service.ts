@@ -17,11 +17,11 @@ export class LoginService {
 
     return new Promise( (resolve, reject) => {
       this.authServerProvider.login(credentials).subscribe(
-        data =>{
+        data => {
           return cb();
         },
-        err =>{
-          console.log('error :'+ err);
+        err => {
+          console.log('error :' + err);
           reject(err);
           return cb(err);
         }

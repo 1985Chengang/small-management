@@ -78,7 +78,7 @@ const router: Routes = [
     FormsModule,
     RouterModule.forRoot(router)
   ],
-  providers: [AuthJwtService,LoginService,LocalStorageService,SessionStorageService],
+  providers: [AuthJwtService, LoginService, LocalStorageService, SessionStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

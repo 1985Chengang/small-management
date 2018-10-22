@@ -8,7 +8,7 @@ import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
   providedIn: 'root'
 })
 export class AuthJwtService {
-  SERVER_API_URL:string = 'http://localhost:8080/api/authenticate';
+  SERVER_API_URL = 'http://localhost:8080/api/authenticate';
 
   constructor(private http: HttpClient, private $localStorage: LocalStorageService, private $sessionStorage: SessionStorageService) {
 
@@ -19,7 +19,7 @@ export class AuthJwtService {
       username: credentials.username,
       password: credentials.password
     };
-    return this.http.post(this.SERVER_API_URL,data,{ observe: 'response'}).pipe(map(authenticateSuccess.bind(this)));
+    return this.http.post(this.SERVER_API_URL, data, { observe: 'response'}).pipe(map(authenticateSuccess.bind(this)));
 
     function authenticateSuccess(resp) {
       const bearerToken = resp.header.get('Authorization');
@@ -31,12 +31,11 @@ export class AuthJwtService {
     }
   }
 
-  storeAuthenticationToken(jwt,rememberMe){
-    if (rememberMe){
-      this.$localStorage.store('authenticationToken', jwt)
-    }
-    else {
-      this.$sessionStorage.store('authenticationToken', jwt)
+  storeAuthenticationToken(jwt, rememberMe) {
+    if (rememberMe) {
+      this.$localStorage.store('authenticationToken', jwt);
+    } else {
+      this.$sessionStorage.store('authenticationToken', jwt);
     }
   }
 }
