@@ -18,25 +18,25 @@ export class LoginComponent implements OnInit {
     console.log(loginData);
 
     this.loginService.login({'username': 'admin', 'password': 'admin'})
-      .then( () =>{
+      .then( () => {
         this.authenticationError = false;
-        console.log('login response is ',true);
+        console.log('login response is ', true);
       })
-      .catch( () =>{
+      .catch( () => {
         this.authenticationError = true;
-        console.log('login response is ',false);
+        console.log('login response is ', false);
       });
 
-    this.http
+    /*this.http
       .post('http://localhost:8080/api/authenticate', {'username': 'admin', 'password': 'admin'})
       .subscribe(
         data => {
           console.log('token', data);
       },
-        err=>{
-          console.log('error',err)
+        err => {
+          console.log('error', err);
         }
-      );
+      );*/
   }
 
 }

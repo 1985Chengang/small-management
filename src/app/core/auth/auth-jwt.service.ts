@@ -22,7 +22,7 @@ export class AuthJwtService {
     return this.http.post(this.SERVER_API_URL, data, { observe: 'response'}).pipe(map(authenticateSuccess.bind(this)));
 
     function authenticateSuccess(resp) {
-      const bearerToken = resp.header.get('Authorization');
+      const bearerToken = resp.headers.get('Authorization');
       if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {
         const jwt = bearerToken.slice(7, bearerToken.length);
         this.storeAuthenticationToken(jwt, false);
