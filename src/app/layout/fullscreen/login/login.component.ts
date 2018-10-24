@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginService} from '../../../core/login/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { LoginService} from '../../../core/login/login.service';
 })
 export class LoginComponent implements OnInit {
   authenticationError: boolean;
-  constructor(private http: HttpClient, private loginService: LoginService) { }
+  constructor(private http: HttpClient, private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
     console.log(loginData);
 
     this.loginService.login({'username': 'admin', 'password': 'admin'})
-      .then( (value) => {
+      .then( value => {
         this.authenticationError = false;
+        this.router.navigate(['/content/profile'])
         console.log('login response is ', true);
       })
       .catch( (erro) => {
