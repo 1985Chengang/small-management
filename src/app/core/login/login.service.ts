@@ -11,17 +11,20 @@ export class LoginService {
   }
 
   login(credentials, callback?) {
-    const cb = callback || function () {};
+    // const cb = callback || function () {};
 
     return new Promise( (resolve, reject) => {
       this.authServerProvider.login(credentials).subscribe(
         data => {
-          return cb();
+          // return cb();
+          // resolve(data);
+          return resolve(data);
         },
         err => {
           console.log('error :' + err);
           reject(err);
-          return cb(err);
+          // return cb(err);
+          return reject;
         }
       );
     });

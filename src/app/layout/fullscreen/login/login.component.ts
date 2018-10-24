@@ -18,11 +18,11 @@ export class LoginComponent implements OnInit {
     console.log(loginData);
 
     this.loginService.login({'username': 'admin', 'password': 'admin'})
-      .then( () => {
+      .then( (value) => {
         this.authenticationError = false;
         console.log('login response is ', true);
       })
-      .catch( () => {
+      .catch( (erro) => {
         this.authenticationError = true;
         console.log('login response is ', false);
       });
