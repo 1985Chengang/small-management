@@ -21,24 +21,13 @@ export class LoginComponent implements OnInit {
     this.loginService.login({'username': 'admin', 'password': 'admin'})
       .then( value => {
         this.authenticationError = false;
-        this.router.navigate(['/content/profile'])
+        this.router.navigate(['/content/profile']);
         console.log('login response is ', true);
       })
       .catch( (erro) => {
         this.authenticationError = true;
         console.log('login response is ', false);
       });
-
-    /*this.http
-      .post('http://localhost:8080/api/authenticate', {'username': 'admin', 'password': 'admin'})
-      .subscribe(
-        data => {
-          console.log('token', data);
-      },
-        err => {
-          console.log('error', err);
-        }
-      );*/
   }
 
 }
